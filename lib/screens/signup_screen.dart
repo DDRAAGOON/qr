@@ -242,8 +242,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscurePassword
-                                  ? Icons.remove_red_eye_outlined
-                                  : Icons.visibility_off_outlined,
+                                  ? Icons.visibility_off_outlined  // مخفي → عين مقفلة
+                                  : Icons.remove_red_eye_outlined, // ظاهر → عين مفتوحة
                               color: darkGreen,
                               size: 20,
                             ),
@@ -268,8 +268,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscureConfirmPassword
-                                  ? Icons.remove_red_eye_outlined
-                                  : Icons.visibility_off_outlined,
+                                  ? Icons.visibility_off_outlined  // مخفي → عين مقفلة
+                                  : Icons.remove_red_eye_outlined, // ظاهر → عين مفتوحة
                               color: darkGreen,
                               size: 20,
                             ),
