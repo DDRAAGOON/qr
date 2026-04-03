@@ -55,20 +55,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Email Field
-                  const Text(
-                    'Email-ID',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
                   const SizedBox(height: 8),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
+                      hintText: 'Email ID',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Colors.grey[300]!),
+                        borderSide: BorderSide(color: Color(0xff00661B)),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -76,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: const BorderSide(color: Colors.green),
+                        borderSide: const BorderSide(color: Color(0xff00661B)),
                       ),
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 15,
