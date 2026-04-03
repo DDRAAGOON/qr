@@ -157,8 +157,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           suffixIcon: IconButton(
                             icon: Icon(
                               _obscurePassword
-                                  ? Icons.remove_red_eye_outlined
-                                  : Icons.visibility_off_outlined,
+                                  ? Icons.visibility_off_outlined
+                                  : Icons.remove_red_eye_outlined,
                               color: darkGreen,
                               size: 20,
                             ),
