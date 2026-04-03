@@ -90,7 +90,7 @@ class MatchesScreen extends StatelessWidget {
     final matches = gameType == 'Football' ? footballMatches : handballMatches;
 
     return Scaffold(
-      backgroundColor: veryLightGray,
+      backgroundColor: white,
       body: SafeArea(
         child: Column(
           children: [
@@ -101,7 +101,7 @@ class MatchesScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final match = matches[index];
                   return Card(
-                    color: mediumGreen,
+                    color: darkGreen,
                     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                     child: Padding(

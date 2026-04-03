@@ -17,7 +17,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: veryLightGray,
+      backgroundColor: white,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -27,7 +27,7 @@ class _SignupScreenState extends State<SignupScreen> {
             const SizedBox(height: 10),
             const Text('QR Ticket', style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: darkGreen)),
             const SizedBox(height: 10),
-            const Text('- ENJOY EVERY MOMENT -', style: TextStyle(color: mediumGreen)),
+            const Text('- ENJOY EVERY MOMENT -', style: TextStyle(color: darkGreen)),
             const SizedBox(height: 40),
             Form(
               key: _formKey,

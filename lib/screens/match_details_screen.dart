@@ -15,13 +15,13 @@ class MatchDetailsScreen extends StatelessWidget {
     final String price = gameType == 'Football' ? '160' : '120';
 
     return Scaffold(
-      backgroundColor: veryLightGray,
+      backgroundColor: white,
       body: SafeArea(
         child: Column(
           children: [
             const CustomBackButton(),
             Container(
-              color: mediumGreen,
+              color: darkGreen,
               padding: const EdgeInsets.all(16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -70,7 +70,7 @@ class MatchDetailsScreen extends StatelessWidget {
               onPressed: () => Navigator.pushNamed(context, '/qr_ticket'),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(250, 50),
-                backgroundColor: greenAccent,
+                backgroundColor: darkGreen,
               ),
             ),
             const SizedBox(height: 20),

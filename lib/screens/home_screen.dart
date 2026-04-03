@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                   child: const Text('OTHER GAMES'),
                 ),
                 const SizedBox(height: 50),
-                const Text('- ENJOY EVERY MOMENT -', style: TextStyle(color: mediumGreen)),
+                const Text('- ENJOY EVERY MOMENT -', style: TextStyle(color: darkGreen)),
               ],
             ),
           ),

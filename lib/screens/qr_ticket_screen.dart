@@ -10,7 +10,7 @@ class QRTicketScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: veryLightGray,
+      backgroundColor: white,
       body: SafeArea(
         child: Column(
           children: [
