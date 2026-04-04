@@ -31,31 +31,11 @@ class PaymentScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 12),
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.chevron_left, color: darkGreen, size: 28),
-                    onPressed: () => Navigator.pop(context),
-                  ),
-                  const Expanded(
-                    child: Text(
-                      'Payment',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: darkGreen,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 48),
-                ],
-              ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 34),
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 decoration: BoxDecoration(
                   border: Border.all(color: black, width: 1.5),
                   borderRadius: BorderRadius.circular(12),
@@ -63,14 +43,13 @@ class PaymentScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
                           'Total Amount',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: black,
                           ),
@@ -81,13 +60,13 @@ class PaymentScreen extends StatelessWidget {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            border: Border.all(color: black, width: 1.5),
-                            borderRadius: BorderRadius.circular(6),
-                          ),
+                              border: Border.all(color: black, width: 1.5),
+                              borderRadius: BorderRadius.circular(6),
+                              color: Color(0xffE4DFDF)),
                           child: Text(
                             '${_amountValue.toStringAsFixed(0)} EGP',
                             style: const TextStyle(
-                              fontSize: 15,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -112,25 +91,19 @@ class PaymentScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Expanded(
-                    child: _PaymentLogo(
-                      imagePath: 'assets/payment/foda.png',
-                      isCircle: true,
-                      bgColor: const Color(0xFFEEEEEE),
-                    ),
+                  _PaymentLogo(
+                    imagePath: 'assets/payment/foda.png',
+                    isCircle: true,
+                    bgColor: const Color(0xFFEEEEEE),
                   ),
-                  Expanded(
-                    child: _PaymentLogo(
-                      imagePath: 'assets/payment/instapay.png',
-                      isCircle: true,
-                      bgColor: const Color(0xFF6B2D8B),
-                    ),
+                  _PaymentLogo(
+                    imagePath: 'assets/payment/instapay.png',
+                    isCircle: true,
+                    bgColor: const Color(0xFF6B2D8B),
                   ),
-                  Expanded(
-                    child: _PaymentLogo(
-                      imagePath: 'assets/payment/orange.png',
-                      isCircle: false,
-                    ),
+                  _PaymentLogo(
+                    imagePath: 'assets/payment/orange.png',
+                    isCircle: false,
                   ),
                 ],
               ),
@@ -203,7 +176,8 @@ class PaymentScreen extends StatelessWidget {
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                        content: Text('Upload screenshot — connect your picker here'),
+                        content: Text(
+                            'Upload screenshot — connect your picker here'),
                         backgroundColor: darkGreen,
                       ),
                     );
@@ -279,18 +253,6 @@ class _PaymentLogo extends StatelessWidget {
         size: 32,
       ),
     );
-
-    if (isCircle) {
-      return Container(
-        width: 80,
-        height: 80,
-        decoration: BoxDecoration(
-          color: bgColor ?? Colors.grey.shade200,
-          shape: BoxShape.circle,
-        ),
-        child: Center(child: img),
-      );
-    }
 
     return SizedBox(width: width, height: height, child: img);
   }
