@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
-import '../router/app_router.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -8,92 +7,137 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF0E9E9),
-      body: SafeArea(  // إضافة SafeArea هنا
-        child: Stack(
-          children: [
-            // الجزء العلوي مع لون خلفية جديد
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                height: 200,
-                decoration: const BoxDecoration(
-                  color: Color(0xffFFFFFF),
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(50)),
-                ),
-                child: const Center(
-                  child: Text(
-                    'QR Ticket',
-                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: darkGreen),
+      backgroundColor: white,
+      body: Stack(
+        children: [
+          // ── Football Ball Top Right ─────────────────────────────
+          Positioned(
+            top: 30,
+            right: -30,
+            child: Image.asset(
+              'assets/image/ballu.png',
+              width: 100,
+              height: 97,
+            ),
+          ),
+
+          // ── Football Ball Bottom Left ───────────────────────────
+          Positioned(
+            bottom: -17,
+            child: Image.asset(
+              'assets/image/balld.png',
+              width: 100,
+              height: 97,
+            ),
+          ),
+
+          // ── Main Content ────────────────────────────────────────
+          SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // ── Green Header Card ─────────────────────────────
+                Container(
+                  margin: const EdgeInsets.fromLTRB(10, 60, 10, 80),
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  decoration: BoxDecoration(
+                    color: darkGreen,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'QR Ticket',
+                      style: TextStyle(
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
+                        color: white,
+                        letterSpacing: 2,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
 
-            // الكورة الأولى
-            Positioned(
-              top: 1,
-              right: -30,
-              child: Image.asset('assets/image/ball.png', width: 100, height: 97),
-            ),
+                const Spacer(),
 
-            // الأزرار في المنتصف
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, AppRoutes.login), // استخدام الثابت
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(200, 50),
-                      backgroundColor: darkGreen,
-                    ),
-                    child: const Text('Login',
-                    style: TextStyle(
-                      color: Colors.white
-                    )),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, AppRoutes.signup), // استخدام الثابت
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(200, 50),
-                      backgroundColor: darkGreen,
-                    ),
-                    child: const Text('Create an account',
+                // ── Buttons ───────────────────────────────────────
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    children: [
+                      // LOG IN
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () => Navigator.pushNamed(context, '/login'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: darkGreen,
+                            foregroundColor: white,
+                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            elevation: 0,
+                          ),
+                          child: const Text(
+                            'LOG IN',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 36),
+
+                      // CREATE ACCOUNT
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () => Navigator.pushNamed(context, '/signup'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: darkGreen,
+                            foregroundColor: white,
+                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            elevation: 0,
+                          ),
+                          child: const Text(
+                            'CREATE ACCOUNT',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 44),
+
+                      // ENJOY EVERY MOMENT
+                      const Text(
+                        '- ENJOY EVERY MOMENT -',
                         style: TextStyle(
-                            color: Colors.white
-                        )),
+                          color: darkGreen,
+                          fontSize: 12,
+                          letterSpacing: 2.5,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-
-            // النص والأيقونة في الأسفل
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 120),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Text('- ENJOY EVERY MOMENT -',
-                        style: TextStyle(color: Color(0xff0C892D))),
-                    const SizedBox(height: 20),
-                    const Icon(Icons.arrow_upward, color: darkGreen),
-                  ],
                 ),
-              ),
-            ),
 
-            // الكورة الثانية
-            Positioned(
-              bottom: 1,
-              left: 0,
-              child: Image.asset('assets/image/ball.png', width: 100, height: 97),
+                const Spacer(flex: 1),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

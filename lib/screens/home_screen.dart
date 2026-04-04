@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
+import '../router/app_router.dart';
+import '../widgets/bottom_nav.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,17 +10,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      body: Column(
+      body: SafeArea(
+        child: Column(
         children: [
           // ── Hero Image Section ──────────────────────────────────
           ClipRRect(
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(36),
-              bottomRight: Radius.circular(36),
-            ),
             child: SizedBox(
-              height: 300,
-              width: double.infinity,
+              height: 383,
+              width: 432,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
@@ -43,7 +42,7 @@ class HomeScreen extends StatelessWidget {
                       'assets/image/football.png',
                       fit: BoxFit.none,  // تحافظ على الحجم الأصلي للصورة
                     ),
-                  )
+                  ),
 
                   // Football ball — bottom left
                 ],
@@ -51,36 +50,42 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 36),
+          const SizedBox(height: 50),
 
           // ── Sport Buttons ───────────────────────────────────────
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 children: [
                   _SportButton(
                     label: 'FOOTBALL',
-                    onTap: () => Navigator.pushNamed(context, '/matches/football'),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.footballMatches,
+                    ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 23),
                   _SportButton(
                     label: 'HANDBALL',
-                    onTap: () => Navigator.pushNamed(context, '/matches/handball'),
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.handballMatches,
+                    ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 23),
                   _SportButton(
                     label: 'OTHER GAMES',
                     onTap: () {},
                   ),
-                  const SizedBox(height: 28),
+                  const SizedBox(height: 55),
 
                   // Subtitle
                   const Text(
                     '- ENJOY EVERY MOMENT -',
                     style: TextStyle(
                       color: darkGreen,
-                      fontSize: 12,
+                      fontSize: 15,
                       letterSpacing: 2.5,
                       fontWeight: FontWeight.w500,
                     ),
@@ -91,7 +96,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-
+      ),
       // ── Bottom Nav ──────────────────────────────────────────────
       bottomNavigationBar: const AppBottomNav(),
     );
@@ -129,54 +134,6 @@ class _SportButton extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-// ── Bottom Navigation Bar ─────────────────────────────────────────
-class AppBottomNav extends StatelessWidget {
-  const AppBottomNav({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: darkGreen,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(28),
-          topRight: Radius.circular(28),
-        ),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          _NavIcon(icon: Icons.home_outlined, onTap: () {}),
-          _NavIcon(icon: Icons.history, onTap: () {}),
-          _NavIcon(icon: Icons.person_outline, onTap: () {}),
-          _NavIcon(
-            icon: Icons.exit_to_app,
-            onTap: () => Navigator.pushNamedAndRemoveUntil(
-              context, '/login', (route) => false,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _NavIcon extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback onTap;
-
-  const _NavIcon({required this.icon, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Icon(icon, color: white, size: 28),
     );
   }
 }
