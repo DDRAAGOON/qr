@@ -12,6 +12,11 @@ import '../screens/signup_screen.dart';
 import '../screens/welcome_screen.dart';
 import '../screens/edit_profile_screen.dart';
 import '../screens/payment_screen.dart';
+import '../screens/payment_upload_flow.dart';
+import '../screens/admin/admin_dashboard_screen.dart';
+import '../screens/admin/admin_login_screen.dart';
+import '../screens/admin/admin_tickets_screen.dart';
+import '../screens/tickets_history_screen.dart';
 
 class AppRoutes {
   static const String welcome = '/welcome';
@@ -27,6 +32,12 @@ class AppRoutes {
   static const String resetPassword = '/reset_password';
   static const String editProfile = '/edit_profile';
   static const String payment = '/payment';
+  static const String paymentUpload = '/payment/upload';
+  static const String paymentUnderReview = '/payment/under_review';
+  static const String adminLogin = '/admin/login';
+  static const String adminDashboard = '/admin';
+  static const String adminTickets = '/admin/tickets';
+  static const String ticketsHistory = '/tickets/history';
 
   static Map<String, WidgetBuilder> get routes {
     return {
@@ -49,6 +60,12 @@ class AppRoutes {
         }
         return const PaymentScreen();
       },
+      paymentUpload: (context) => const UploadPaymentScreenshotScreen(),
+      paymentUnderReview: (context) => const PaymentUnderReviewScreen(),
+      adminLogin: (context) => const AdminLoginScreen(),
+      adminDashboard: (context) => const AdminDashboardScreen(),
+      adminTickets: (context) => const AdminTicketsScreen(),
+      ticketsHistory: (context) => const TicketsHistoryScreen(),
     };
   }
 

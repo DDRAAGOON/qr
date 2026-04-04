@@ -28,7 +28,13 @@ class AppBottomNav extends StatelessWidget {
               (route) => false,
             ),
           ),
-          _NavIcon(icon: Icons.history, onTap: () {}),
+          _NavIcon(
+            icon: Icons.history,
+            onTap: () => Navigator.pushNamed(
+              context,
+              AppRoutes.ticketsHistory,
+            ),
+          ),
           _NavIcon(
             icon: Icons.person_outline,
             onTap: () => Navigator.pushNamed(

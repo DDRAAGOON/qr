@@ -16,7 +16,10 @@ class HandballMatchesScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const CustomBackButton(),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: const CustomBackButton(),
+            ),
             Expanded(
               child: ListView.builder(
                 padding:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../router/app_router.dart';
 import '../../widgets/bottom_nav.dart';
 
 class HandballDetailScreen extends StatelessWidget {
@@ -125,51 +126,76 @@ class HandballDetailScreen extends StatelessWidget {
                 children: [
                   _CategoryButton(
                     label: 'Cat3 - Left',
-                    onTap: () {},
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Cat3 - Left',
+                        'amount': price,
+                      },
+                    ),
                     textShiftRight: categoryLabelShiftRight,
                   ),
                   const SizedBox(height: 24),
                   _CategoryButton(
                     label: 'Cat3 - Right',
-                    onTap: () {},
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Cat3 - Right',
+                        'amount': price,
+                      },
+                    ),
                     textShiftRight: categoryLabelShiftRight,
                   ),
                   const SizedBox(height: 24),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: darkGreen,
-                      borderRadius: BorderRadius.circular(15),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Selected ticket',
+                        'amount': price,
+                      },
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Image.asset(
-                          'assets/icons/money.png',
-                          width: 32,
-                          height: 22,
-                          color: white,
-                        ),
-                        const SizedBox(width: 10),
-                        const Text(
-                          'Price',
-                          style: TextStyle(
+                    behavior: HitTestBehavior.opaque,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      decoration: BoxDecoration(
+                        color: darkGreen,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            'assets/icons/money.png',
+                            width: 32,
+                            height: 22,
                             color: white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
-                        const SizedBox(width: 15),
-                        Text(
-                          price,
-                          style: const TextStyle(
-                            color: white,
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                          const SizedBox(width: 10),
+                          const Text(
+                            'Price',
+                            style: TextStyle(
+                              color: white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 15),
+                          Text(
+                            price,
+                            style: const TextStyle(
+                              color: white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

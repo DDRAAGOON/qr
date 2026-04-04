@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import '../constants/colors.dart';
 import '../router/app_router.dart';
 import '../widgets/bottom_nav.dart';
@@ -43,6 +42,7 @@ class PaymentScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -90,16 +90,16 @@ class PaymentScreen extends StatelessWidget {
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   _PaymentLogo(
-                    imagePath: 'assets/payment/foda.png',
+                    imagePath: 'assets/payment/vodafone.png',
                     isCircle: true,
-                    bgColor: const Color(0xFFEEEEEE),
+                    bgColor: Color(0xFFEEEEEE),
                   ),
                   _PaymentLogo(
                     imagePath: 'assets/payment/instapay.png',
                     isCircle: true,
-                    bgColor: const Color(0xFF6B2D8B),
+                    bgColor: Color(0xFF6B2D8B),
                   ),
                   _PaymentLogo(
                     imagePath: 'assets/payment/orange.png',
@@ -174,13 +174,7 @@ class PaymentScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                            'Upload screenshot — connect your picker here'),
-                        backgroundColor: darkGreen,
-                      ),
-                    );
+                    Navigator.pushNamed(context, AppRoutes.paymentUpload);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: darkGreen,
@@ -194,7 +188,7 @@ class PaymentScreen extends StatelessWidget {
                   child: const Text(
                     'Upload Screenshot',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -253,6 +247,18 @@ class _PaymentLogo extends StatelessWidget {
         size: 32,
       ),
     );
+
+    // if (isCircle) {
+    //   return Container(
+    //     width: 80,
+    //     height: 80,
+    //     decoration: BoxDecoration(
+    //       color: bgColor ?? Colors.grey.shade200,
+    //       shape: BoxShape.circle,
+    //     ),
+    //     child: Center(child: img),
+    //   );
+    // }
 
     return SizedBox(width: width, height: height, child: img);
   }

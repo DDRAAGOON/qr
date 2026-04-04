@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../../router/app_router.dart';
 import '../../widgets/bottom_nav.dart';
 
 class FootballDetailScreen extends StatelessWidget {
@@ -144,25 +145,41 @@ class FootballDetailScreen extends StatelessWidget {
                 children: [
                   _CategoryButton(
                     label: 'Cat3 - Left',
-                    onTap: () {
-                      Navigator.pushNamed(context, '/payment');
-                    },
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Cat3 - Left',
+                        'amount': price,
+                      },
+                    ),
                     textShiftRight: categoryLabelShiftRight,
                   ),
                   SizedBox(height: categoryButtonsVerticalGap),
                   _CategoryButton(
                     label: 'Cat3 - Right',
-                    onTap: () {
-                      Navigator.pushNamed(context, '/payment');
-                    },
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Cat3 - Right',
+                        'amount': price,
+                      },
+                    ),
                     textShiftRight: categoryLabelShiftRight,
                   ),
                   const SizedBox(height: 13),
 
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/payment');
-                    },
+                    onTap: () => Navigator.pushNamed(
+                      context,
+                      AppRoutes.payment,
+                      arguments: {
+                        'seat': 'Selected ticket',
+                        'amount': price,
+                      },
+                    ),
+                    behavior: HitTestBehavior.opaque,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 12),

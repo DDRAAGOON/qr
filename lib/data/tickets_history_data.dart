@@ -1,0 +1,43 @@
+/// بيانات تجريبية لسجل التذاكر.
+const List<Map<String, dynamic>> kTicketsHistoryData = [
+  {
+    'title': 'Al Ahly vs Zamalek',
+    'logo1': 'assets/teamfootball/Al_Ahly.png',
+    'logo2': 'assets/teamfootball/Zamalek.png',
+    'date': '5 June 2026',
+    'time': '20:00',
+    'price': '75.00 EGP',
+    'category': 'Cat3 - Right',
+    'status': 'Completed',
+  },
+  {
+    'title': 'Zamalek vs National Bank',
+    'logo1': 'assets/teamfootball/Zamalek.png',
+    'logo2': 'assets/teamfootball/3.png',
+    'date': '18 May 2026',
+    'time': '19:00',
+    'price': '75.00 EGP',
+    'category': 'Cat3 - Left',
+    'status': 'Completed',
+  },
+  {
+    'title': 'Al Ahly vs Smouha',
+    'logo1': 'assets/teamfootball/Al_Ahly.png',
+    'logo2': 'assets/teamfootball/4.png',
+    'date': '14 May 2026',
+    'time': '22:00',
+    'price': '75.00 EGP',
+    'category': 'Cat3 - Right',
+    'status': 'Completed',
+  },
+  {
+    'title': 'Al Ittihad vs Smouha',
+    'logo1': 'assets/teamfootball/6.png',
+    'logo2': 'assets/teamfootball/4.png',
+    'date': '17 June 2026',
+    'time': '18:00',
+    'price': '75.00 EGP',
+    'category': 'Cat3 - Left',
+    'status': 'Completed',
+  },
+];
