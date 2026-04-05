@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "41938335699",
+    "firebase_url": "https://qrticket-app-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "qrticket-app",
+    "storage_bucket": "qrticket-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41938335699:android:ad2ac518a0d95f2bcfe126",
+        "android_client_info": {
+          "package_name": "com.example.qr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41938335699-c2fv3rp2ao7q5fm4cbrjba7afd5297ge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHQgzhmmeb6Cab_Ogj9X2uq5qd1U6bhcw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41938335699-c2fv3rp2ao7q5fm4cbrjba7afd5297ge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
