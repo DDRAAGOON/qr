@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constants/colors.dart';
-import '../data/tickets_history_data.dart';
-import '../widgets/bottom_nav.dart';
-import '../widgets/ticket_history_item.dart';
+import '../../core/constants/colors.dart';
+import '../../core/data/tickets_history_data.dart';
+import '../../widgets/bottom_nav.dart';
+import '../../widgets/ticket_history_item.dart';
 
 /// سجل التذاكر المشتراة.
 class TicketsHistoryScreen extends StatelessWidget {
@@ -19,30 +20,30 @@ class TicketsHistoryScreen extends StatelessWidget {
         backgroundColor: darkGreen,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.chevron_left, color: white, size: 28),
+          icon: Icon(Icons.chevron_left, color: white, size: 28.r),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
+        title: Text(
           'Tickets History',
           style: TextStyle(
             color: white,
-            fontSize: 20,
+            fontSize: 20.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(20),
-            bottomRight: Radius.circular(20),
+            bottomLeft: Radius.circular(20.r),
+            bottomRight: Radius.circular(20.r),
           ),
         ),
       ),
       body: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
         itemCount: kTicketsHistoryData.length,
-        separatorBuilder: (_, __) => const Divider(
-          height: 32,
-          thickness: 1,
+        separatorBuilder: (_, __) => Divider(
+          height: 32.h,
+          thickness: 1.h,
           color: _dividerColor,
         ),
         itemBuilder: (context, i) {

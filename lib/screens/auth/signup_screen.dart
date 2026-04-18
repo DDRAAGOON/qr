@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -22,39 +23,39 @@ class _SignupScreenState extends State<SignupScreen> {
     String? hintText,
   }) {
     return InputDecoration(
-      prefixIcon: Icon(prefixIcon, color: darkGreen, size: 20),
+      prefixIcon: Icon(prefixIcon, color: darkGreen, size: 20.r),
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(label, style: const TextStyle(color: darkGreen, fontSize: 14)),
-          const Text(' :', style: TextStyle(color: darkGreen, fontSize: 14)),
+          Text(label, style: TextStyle(color: darkGreen, fontSize: 14.sp)),
+          Text(' :', style: TextStyle(color: darkGreen, fontSize: 14.sp)),
         ],
       ),
       hintText: hintText,
-      hintStyle: const TextStyle(color: darkGreen, fontSize: 13),
+      hintStyle: TextStyle(color: darkGreen, fontSize: 13.sp),
       suffixIcon: suffixIcon,
       filled: true,
       fillColor: Colors.white,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(50),
-        borderSide: const BorderSide(color: darkGreen, width: 1.5),
+        borderRadius: BorderRadius.circular(50.r),
+        borderSide: BorderSide(color: darkGreen, width: 1.5.w),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(50),
-        borderSide: const BorderSide(color: darkGreen, width: 1.5),
+        borderRadius: BorderRadius.circular(50.r),
+        borderSide: BorderSide(color: darkGreen, width: 1.5.w),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(50),
-        borderSide: const BorderSide(color: darkGreen, width: 2),
+        borderRadius: BorderRadius.circular(50.r),
+        borderSide: BorderSide(color: darkGreen, width: 2.w),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(50),
-        borderSide: const BorderSide(color: Colors.red, width: 1.5),
+        borderRadius: BorderRadius.circular(50.r),
+        borderSide: BorderSide(color: Colors.red, width: 1.5.w),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(50),
-        borderSide: const BorderSide(color: Colors.red, width: 2),
+        borderRadius: BorderRadius.circular(50.r),
+        borderSide: BorderSide(color: Colors.red, width: 2.w),
       ),
     );
   }
@@ -67,7 +68,7 @@ class _SignupScreenState extends State<SignupScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
 
               // ── Back button + Header card ──────────────────────────
               Stack(
@@ -75,21 +76,21 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   // Green header card
                   Container(
-                    margin: const EdgeInsets.fromLTRB(16, 50, 16, 0),
+                    margin: EdgeInsets.fromLTRB(16.w, 50.h, 16.w, 0),
                     width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 30),
+                    padding: EdgeInsets.symmetric(vertical: 30.h),
                     decoration: BoxDecoration(
                       color: darkGreen,
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(30.r),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         'QR Ticket',
                         style: TextStyle(
-                          fontSize: 40,
+                          fontSize: 40.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                          letterSpacing: 1,
+                          letterSpacing: 1.w,
                         ),
                       ),
                     ),
@@ -97,20 +98,20 @@ class _SignupScreenState extends State<SignupScreen> {
                   // Back button (circle) — overlapping top-left
                   Positioned(
                     top: 0,
-                    left: 16,
+                    left: 16.w,
                     child: GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: Container(
-                        width: 42,
-                        height: 42,
+                        width: 42.w,
+                        height: 42.w,
                         decoration: const BoxDecoration(
                           color: darkGreen,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.chevron_left,
                           color: Colors.white,
-                          size: 26,
+                          size: 26.r,
                         ),
                       ),
                     ),
@@ -118,24 +119,24 @@ class _SignupScreenState extends State<SignupScreen> {
                 ],
               ),
 
-              const SizedBox(height: 18),
+              SizedBox(height: 18.h),
 
               // ── Subtitle ──────────────────────────────────────────
-              const Text(
+              Text(
                 '- ENJOY EVERY MOMENT -',
                 style: TextStyle(
                   color: darkGreen,
-                  fontSize: 12,
-                  letterSpacing: 2.5,
+                  fontSize: 12.sp,
+                  letterSpacing: 2.5.w,
                   fontWeight: FontWeight.w500,
                 ),
               ),
 
-              const SizedBox(height: 28),
+              SizedBox(height: 28.h),
 
               // ── Form ──────────────────────────────────────────────
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -149,7 +150,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         validator: (v) =>
                         v == null || v.isEmpty ? 'Please enter your name' : null,
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Email ID
                       TextFormField(
@@ -164,7 +165,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Phone Number
                       TextFormField(
@@ -180,7 +181,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Date of Birth
                       GestureDetector(
@@ -200,38 +201,38 @@ class _SignupScreenState extends State<SignupScreen> {
                           if (picked != null) setState(() => _selectedDate = picked);
                         },
                         child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 16),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20.w, vertical: 16.h),
                           decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(50),
-                            border: Border.all(color: darkGreen, width: 1.5),
+                            borderRadius: BorderRadius.circular(50.r),
+                            border: Border.all(color: darkGreen, width: 1.5.w),
                           ),
                           child: Row(
                             children: [
-                              const Icon(Icons.calendar_month_outlined,
-                                  color: darkGreen, size: 20),
-                              const SizedBox(width: 12),
-                              const Text(
+                              Icon(Icons.calendar_month_outlined,
+                                  color: darkGreen, size: 20.r),
+                              SizedBox(width: 12.w),
+                              Text(
                                 'Date of Birth  :',
-                                style: TextStyle(color: darkGreen, fontSize: 14),
+                                style: TextStyle(color: darkGreen, fontSize: 14.sp),
                               ),
-                              const SizedBox(width: 12),
-                              const Icon(Icons.calendar_today_outlined,
-                                  color: darkGreen, size: 16),
-                              const SizedBox(width: 6),
+                              SizedBox(width: 12.w),
+                              Icon(Icons.calendar_today_outlined,
+                                  color: darkGreen, size: 16.r),
+                              SizedBox(width: 6.w),
                               Text(
                                 _selectedDate == null
                                     ? 'Y/M/D'
                                     : '${_selectedDate!.year}/${_selectedDate!.month}/${_selectedDate!.day}',
-                                style: const TextStyle(
-                                    color: darkGreen, fontSize: 13),
+                                style: TextStyle(
+                                    color: darkGreen, fontSize: 13.sp),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Password
                       TextFormField(
@@ -245,7 +246,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ? Icons.visibility_off_outlined  // مخفي → عين مقفلة
                                   : Icons.remove_red_eye_outlined, // ظاهر → عين مفتوحة
                               color: darkGreen,
-                              size: 20,
+                              size: 20.r,
                             ),
                             onPressed: () =>
                                 setState(() => _obscurePassword = !_obscurePassword),
@@ -257,7 +258,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 16),
+                      SizedBox(height: 16.h),
 
                       // Confirm Password
                       TextFormField(
@@ -271,7 +272,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                   ? Icons.visibility_off_outlined  // مخفي → عين مقفلة
                                   : Icons.remove_red_eye_outlined, // ظاهر → عين مفتوحة
                               color: darkGreen,
-                              size: 20,
+                              size: 20.r,
                             ),
                             onPressed: () => setState(() =>
                             _obscureConfirmPassword = !_obscureConfirmPassword),
@@ -280,11 +281,11 @@ class _SignupScreenState extends State<SignupScreen> {
                         validator: (v) =>
                         v == null || v.isEmpty ? 'Please confirm password' : null,
                       ),
-                      const SizedBox(height: 32),
+                      SizedBox(height: 32.h),
 
                       // SIGN IN button
                       SizedBox(
-                        width: 200,
+                        width: 200.w,
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
@@ -299,29 +300,27 @@ class _SignupScreenState extends State<SignupScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: darkGreen,
                             foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(vertical: 16),
+                            padding: EdgeInsets.symmetric(vertical: 16.h),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(30.r),
                             ),
                             elevation: 0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'SIGN IN',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                              letterSpacing: 2.w,
                             ),
                           ),
                         ),
                       ),
 
-                      const SizedBox(height: 24),
-
+                      SizedBox(height: 24.h),
                       // Up arrow at bottom
-                      const Icon(Icons.keyboard_arrow_up, color: darkGreen, size: 32),
-
-                      const SizedBox(height: 16),
+                      Icon(Icons.keyboard_arrow_up, color: darkGreen, size: 32.r),
+                      SizedBox(height: 16.h),
                     ],
                   ),
                 ),

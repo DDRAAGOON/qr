@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../constants/colors.dart';
+import '../core/constants/colors.dart';
 
 class TicketHistoryItem extends StatelessWidget {
   const TicketHistoryItem({super.key, required this.ticket});
@@ -20,62 +21,62 @@ class TicketHistoryItem extends StatelessWidget {
             children: [
               Text(
                 ticket['title'] as String? ?? '',
-                style: const TextStyle(
-                  fontSize: 13,
+                style: TextStyle(
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Row(
                 children: [
                   _logoImg(ticket['logo1'] as String? ?? ''),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 6),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 6.w),
                     child: Text(
                       '— vs —',
-                      style: TextStyle(color: black, fontSize: 13),
+                      style: TextStyle(color: black, fontSize: 13.sp),
                     ),
                   ),
                   _logoImg(ticket['logo2'] as String? ?? ''),
                 ],
               ),
-              const SizedBox(height: 3),
+              SizedBox(height: 3.h),
               Row(
                 children: [
                   Text(
                     ticket['date'] as String? ?? '',
-                    style: const TextStyle(
-                      fontSize: 16,
+                    style: TextStyle(
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
                       color: black,
                     ),
                   ),
-                  const Text(
+                  Text(
                     '  -  ',
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(color: Colors.grey, fontSize: 14.sp),
                   ),
                   Text(
                     ticket['time'] as String? ?? '',
-                    style: const TextStyle(
-                      fontSize: 14,
+                    style: TextStyle(
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4.h),
               Text(
                 'Price: ${ticket['price']}',
-                style: const TextStyle(
-                  fontSize: 14,
+                style: TextStyle(
+                  fontSize: 14.sp,
                   color: black,
                 ),
               ),
             ],
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12.w),
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
@@ -84,42 +85,42 @@ class TicketHistoryItem extends StatelessWidget {
                   ? () => Navigator.pushNamed(context, '/qr_ticket')
                   : null,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 6.h),
                 decoration: BoxDecoration(
                   color: _statusBackground(status),
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(4.r),
                 ),
                 child: Text(
                   status,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: white,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
               decoration: BoxDecoration(
                 color: Colors.grey.shade400,
-                borderRadius: BorderRadius.circular(1),
+                borderRadius: BorderRadius.circular(1.r),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
                     'assets/icons/seat.png',
-                    width: 17,
-                    height: 17,
+                    width: 17.w,
+                    height: 17.w,
                     color: Colors.grey.shade700,
                   ),
-                  const SizedBox(width: 4),
+                  SizedBox(width: 4.w),
                   Text(
                     ticket['category'] as String? ?? '',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 12.sp,
                       color: Colors.grey.shade700,
                     ),
                   ),
@@ -149,11 +150,11 @@ class TicketHistoryItem extends StatelessWidget {
   Widget _logoImg(String path) {
     return Image.asset(
       path,
-      width: 44,
-      height: 44,
+      width: 44.w,
+      height: 44.w,
       fit: BoxFit.contain,
       errorBuilder: (_, __, ___) =>
-          const Icon(Icons.sports_soccer, size: 36, color: darkGreen),
+          Icon(Icons.sports_soccer, size: 36.r, color: darkGreen),
     );
   }
 }

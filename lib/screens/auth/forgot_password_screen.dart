@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -17,26 +18,26 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       backgroundColor: white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
 
               // ── Back Button ───────────────────────────────────────
               GestureDetector(
                 onTap: () => Navigator.pop(context),
                 child: Container(
-                  width: 42,
-                  height: 42,
+                  width: 42.w,
+                  height: 42.w,
                   decoration: const BoxDecoration(
                     color: darkGreen,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.chevron_left,
                     color: white,
-                    size: 26,
+                    size: 26.r,
                   ),
                 ),
               ),
@@ -44,29 +45,27 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               const Spacer(),
 
               // ── Title ─────────────────────────────────────────────
-              const Text(
+              Text(
                 'Forgot\nPassword?',
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: 32.sp,
                   fontWeight: FontWeight.bold,
                   color: darkGreen,
                   height: 1.2,
                 ),
               ),
-
-              const SizedBox(height: 16),
+              SizedBox(height: 16.h),
 
               // ── Subtitle ──────────────────────────────────────────
-              const Text(
+              Text(
                 "Don't worry! it happens. Please enter the address associated with your account.",
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   color: Colors.black54,
                   height: 1.5,
                 ),
               ),
-
-              const SizedBox(height: 36),
+              SizedBox(height: 36.h),
 
               // ── Email / Mobile Field ──────────────────────────────
               Form(
@@ -74,29 +73,29 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     hintText: 'Email ID / Mobile number',
-                    hintStyle: const TextStyle(color: darkGreen, fontSize: 14),
-                    prefixIcon: const Icon(Icons.alternate_email, color: darkGreen, size: 20),
+                    hintStyle: TextStyle(color: darkGreen, fontSize: 14.sp),
+                    prefixIcon: Icon(Icons.alternate_email, color: darkGreen, size: 20.r),
                     filled: true,
                     fillColor: white,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                    contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       borderSide: const BorderSide(color: darkGreen, width: 1.5),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       borderSide: const BorderSide(color: darkGreen, width: 1.5),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       borderSide: const BorderSide(color: darkGreen, width: 2),
                     ),
                     errorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       borderSide: const BorderSide(color: Colors.red, width: 1.5),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50.r),
                       borderSide: const BorderSide(color: Colors.red, width: 2),
                     ),
                   ),
@@ -104,33 +103,30 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   v == null || v.isEmpty ? 'Enter email or mobile' : null,
                 ),
               ),
-
-              const SizedBox(height: 28),
+              SizedBox(height: 28.h),
 
               // ── Submit Button ─────────────────────────────────────
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Navigator.pushNamed(context, '/reset_password');
-                    }
+                      Navigator.pushNamed(context, '/verification');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: darkGreen,
                     foregroundColor: white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(14.r),
                     ),
                     elevation: 0,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Submit',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 0.5,
+                      letterSpacing: 0.5.w,
                     ),
                   ),
                 ),

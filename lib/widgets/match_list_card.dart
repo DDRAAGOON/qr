@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../core/constants/colors.dart';
 
 class MatchListCard extends StatelessWidget {
   final Map<String, dynamic> match;
@@ -18,67 +19,67 @@ class MatchListCard extends StatelessWidget {
     final bool isWaiting = match['status'] == 'Wait for a Ticket';
 
     return Container(
-      margin: const EdgeInsets.only(bottom: 24),
+      margin: EdgeInsets.only(bottom: 24.h),
       decoration: BoxDecoration(
         color: const Color(0xA60C892D),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.r),
       ),
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      padding: EdgeInsets.all(16.r),
       child: Column(
         children: [
           Text(
             competitionLabel,
-            style: const TextStyle(
+            style: TextStyle(
               color: gray,
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(height: 2),
+          SizedBox(height: 2.h),
           Text(
             match['date'] as String,
-            style: const TextStyle(
+            style: TextStyle(
               color: darkGreen,
-              fontSize: 17,
+              fontSize: 17.sp,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 2),
+          SizedBox(height: 2.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image.asset(
                 match['team1'] as String,
-                width: 64,
-                height: 64,
+                width: 64.w,
+                height: 64.w,
                 fit: BoxFit.contain,
                 errorBuilder: (_, __, ___) => Container(
-                  width: 64,
-                  height: 64,
+                  width: 64.w,
+                  height: 64.w,
                   decoration: BoxDecoration(
                     color: white.withOpacity(0.3),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.sports_soccer, color: white, size: 32),
+                  child: Icon(Icons.sports_soccer, color: white, size: 32.r),
                 ),
               ),
               Column(
                 children: [
-                  const Text(
+                  Text(
                     'KICK OFF',
                     style: TextStyle(
                       color: black,
-                      fontSize: 14,
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
+                      letterSpacing: 1.w,
                     ),
                   ),
-                  const SizedBox(height: 2),
+                  SizedBox(height: 2.h),
                   Text(
                     match['time'] as String,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: black,
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -86,24 +87,24 @@ class MatchListCard extends StatelessWidget {
               ),
               Image.asset(
                 match['team2'] as String,
-                width: 64,
-                height: 64,
+                width: 64.w,
+                height: 64.w,
                 fit: BoxFit.contain,
                 errorBuilder: (_, __, ___) => Container(
-                  width: 64,
-                  height: 64,
+                  width: 64.w,
+                  height: 64.w,
                   decoration: BoxDecoration(
                     color: white.withOpacity(0.3),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.sports_soccer, color: white, size: 32),
+                  child: Icon(Icons.sports_soccer, color: white, size: 32.r),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 2),
+          SizedBox(height: 2.h),
           SizedBox(
-            width: 160,
+            width: 160.w,
             child: ElevatedButton(
               onPressed: isWaiting
                   ? null
@@ -116,18 +117,18 @@ class MatchListCard extends StatelessWidget {
                 backgroundColor:
                     isWaiting ? Colors.grey.shade400 : darkGreen,
                 foregroundColor: white,
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: EdgeInsets.symmetric(vertical: 10.h),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(20.r),
                 ),
                 elevation: 0,
               ),
               child: Text(
                 match['status'] as String,
-                style: const TextStyle(
-                  fontSize: 13,
+                style: TextStyle(
+                  fontSize: 13.sp,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 0.5,
+                  letterSpacing: 0.5.w,
                 ),
               ),
             ),

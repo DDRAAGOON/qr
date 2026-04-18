@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import '../screens/forgot_password_screen.dart';
-import '../screens/home_screen.dart';
-import '../screens/login_screen.dart';
-import '../screens/matches/football_detail_screen.dart';
-import '../screens/matches/football_matches_screen.dart';
-
-import '../screens/qr_ticket_screen.dart';
-import '../screens/reset_password_screen.dart';
-import '../screens/signup_screen.dart';
-import '../screens/welcome_screen.dart';
-import '../screens/edit_profile_screen.dart';
-import '../screens/payment_screen.dart';
-import '../screens/payment_upload_flow.dart';
-import '../screens/admin/admin_dashboard_screen.dart';
-import '../screens/admin/admin_login_screen.dart';
-import '../screens/admin/admin_tickets_screen.dart';
-import '../screens/tickets_history_screen.dart';
+import '../../screens/auth/forgot_password_screen.dart';
+import '../../screens/main/home_screen.dart';
+import '../../screens/auth/login_screen.dart';
+import '../../screens/auth/signup_screen.dart';
+import '../../screens/auth/reset_password_screen.dart';
+import '../../screens/auth/verification_screen.dart';
+import '../../screens/main/welcome_screen.dart';
+import '../../screens/main/edit_profile_screen.dart';
+import '../../screens/payment/payment_screen.dart';
+import '../../screens/payment/payment_upload_flow.dart';
+import '../../screens/tickets/qr_ticket_screen.dart';
+import '../../screens/tickets/tickets_history_screen.dart';
+import '../../screens/matches/football_detail_screen.dart';
+import '../../screens/matches/football_matches_screen.dart';
+import '../../screens/admin/admin_dashboard_screen.dart';
+import '../../screens/admin/admin_login_screen.dart';
+import '../../screens/admin/admin_tickets_screen.dart';
 
 class AppRoutes {
   static const String welcome = '/welcome';
@@ -37,6 +37,7 @@ class AppRoutes {
   static const String adminDashboard = '/admin';
   static const String adminTickets = '/admin/tickets';
   static const String ticketsHistory = '/tickets/history';
+  static const String verification = '/verification';
 
   static Map<String, WidgetBuilder> get routes {
     return {
@@ -65,6 +66,7 @@ class AppRoutes {
       adminDashboard: (context) => const AdminDashboardScreen(),
       adminTickets: (context) => const AdminTicketsScreen(),
       ticketsHistory: (context) => const TicketsHistoryScreen(),
+      verification: (context) => const VerificationScreen(),
     };
   }
 

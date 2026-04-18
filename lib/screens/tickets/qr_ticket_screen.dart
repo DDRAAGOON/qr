@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import '../constants/colors.dart';
-import '../widgets/bottom_nav.dart';
+import '../../core/constants/colors.dart';
+import '../../widgets/bottom_nav.dart';
 
 class QRTicketScreen extends StatelessWidget {
   const QRTicketScreen({super.key});
@@ -13,11 +14,11 @@ class QRTicketScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 57),
-            const Text(
+            SizedBox(height: 57.h),
+            Text(
               'Payment Approved ✓',
               style: TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.bold, color: black),
+                  fontSize: 24.sp, fontWeight: FontWeight.bold, color: black),
             ),
             Expanded(
               child: Center(
@@ -27,12 +28,12 @@ class QRTicketScreen extends StatelessWidget {
                     QrImageView(
                       data: 'https://example.com/ticket/12345',
                       version: QrVersions.auto,
-                      size: 300.0,
+                      size: 300.w,
                       backgroundColor: Colors.white,
                     ),
-                    const SizedBox(height: 18),
-                    const Text('Show this QR code at the gate',
-                        style: TextStyle(color: black, fontSize: 16)),
+                    SizedBox(height: 18.h),
+                    Text('Show this QR code at the gate',
+                        style: TextStyle(color: black, fontSize: 16.sp)),
                   ],
                 ),
               ),

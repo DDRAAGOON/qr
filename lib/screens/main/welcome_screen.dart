@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -12,22 +13,23 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           // ── Football Ball Top Right ─────────────────────────────
           Positioned(
-            top: 30,
-            right: -30,
+            top: 30.h,
+            right: -30.w,
             child: Image.asset(
               'assets/image/ballu.png',
-              width: 100,
-              height: 97,
+              width: 100.w,
+              height: 97.h,
             ),
           ),
 
           // ── Football Ball Bottom Left ───────────────────────────
           Positioned(
-            bottom: -17,left: -50,
+            bottom: -17.h,
+            left: -50.w,
             child: Image.asset(
               'assets/image/image.png',
-              width:205,
-              height: 205,
+              width: 205.w,
+              height: 205.w,
             ),
           ),
 
@@ -38,21 +40,21 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 // ── Green Header Card ─────────────────────────────
                 Container(
-                  margin: const EdgeInsets.fromLTRB(10, 60, 10, 80),
+                  margin: EdgeInsets.fromLTRB(10.w, 60.h, 10.w, 80.h),
                   width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  padding: EdgeInsets.symmetric(vertical: 20.h),
                   decoration: BoxDecoration(
                     color: darkGreen,
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(30.r),
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Text(
                       'QR Ticket',
                       style: TextStyle(
-                        fontSize: 45,
+                        fontSize: 45.sp,
                         fontWeight: FontWeight.bold,
                         color: white,
-                        letterSpacing: 2,
+                        letterSpacing: 2.w,
                       ),
                     ),
                   ),
@@ -73,24 +75,23 @@ class WelcomeScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: darkGreen,
                             foregroundColor: white,
-                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            padding: EdgeInsets.symmetric(vertical: 18.h),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
                             elevation: 0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'LOG IN',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                              letterSpacing: 2.w,
                             ),
                           ),
                         ),
                       ),
-
-                      const SizedBox(height: 36),
+                      SizedBox(height: 36.h),
 
                       // CREATE ACCOUNT
                       SizedBox(
@@ -100,32 +101,31 @@ class WelcomeScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: darkGreen,
                             foregroundColor: white,
-                            padding: const EdgeInsets.symmetric(vertical: 18),
+                            padding: EdgeInsets.symmetric(vertical: 18.h),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                             ),
                             elevation: 0,
                           ),
-                          child: const Text(
+                          child: Text(
                             'CREATE ACCOUNT',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
-                              letterSpacing: 2,
+                              letterSpacing: 2.w,
                             ),
                           ),
                         ),
                       ),
-
-                      const SizedBox(height: 44),
+                      SizedBox(height: 44.h),
 
                       // ENJOY EVERY MOMENT
-                      const Text(
+                      Text(
                         '- ENJOY EVERY MOMENT -',
                         style: TextStyle(
                           color: darkGreen,
-                          fontSize: 12,
-                          letterSpacing: 2.5,
+                          fontSize: 12.sp,
+                          letterSpacing: 2.5.w,
                           fontWeight: FontWeight.w500,
                         ),
                       ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../constants/colors.dart';
-import '../../data/match_data.dart';
-import '../../router/app_router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
+import '../../core/data/match_data.dart';
+import '../../core/router/app_router.dart';
 import '../../widgets/back_button.dart';
 import '../../widgets/bottom_nav.dart';
 import '../../widgets/match_list_card.dart';
@@ -23,7 +24,7 @@ class FootballMatchesScreen extends StatelessWidget {
             Expanded(
               child: ListView.builder(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                    EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
                 itemCount: footballMatches.length,
                 itemBuilder: (context, index) {
                   return MatchListCard(

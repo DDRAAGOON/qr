@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../widgets/bottom_nav.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
+import '../../widgets/bottom_nav.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -12,9 +13,9 @@ class EditProfileScreen extends StatefulWidget {
   static const double actionButtonsRowHorizontalInset = 50;
 
   /// لون وحجم نص الحقول (Username, Email, …).
-  static const TextStyle fieldInputStyle = TextStyle(
+  static TextStyle get fieldInputStyle => TextStyle(
     color: darkGreen,
-    fontSize: 14,
+    fontSize: 14.sp,
   );
 
   @override
@@ -59,17 +60,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     Widget? suffixIcon,
   }) {
     return InputDecoration(
-      prefixIcon: Icon(icon, color: darkGreen, size: 20),
+      prefixIcon: Icon(icon, color: darkGreen, size: 20.r),
       suffixIcon: suffixIcon,
       filled: true,
       fillColor: white,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
         borderSide: const BorderSide(color: darkGreen, width: 1.5),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8.r),
         borderSide: const BorderSide(color: darkGreen, width: 2),
       ),
     );
@@ -81,29 +82,29 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       foregroundColor: white,
       elevation: 0,
       padding: EdgeInsets.symmetric(
-        vertical: EditProfileScreen.actionButtonVerticalPadding,
-        horizontal: EditProfileScreen.actionButtonHorizontalPadding,
+        vertical: EditProfileScreen.actionButtonVerticalPadding.h,
+        horizontal: EditProfileScreen.actionButtonHorizontalPadding.w,
       ),
       minimumSize: Size.zero,
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(
-          EditProfileScreen.actionButtonBorderRadius,
+          EditProfileScreen.actionButtonBorderRadius.r,
         ),
       ),
       textStyle: TextStyle(
-        fontSize: EditProfileScreen.actionButtonFontSize,
+        fontSize: EditProfileScreen.actionButtonFontSize.sp,
         fontWeight: FontWeight.bold,
       ),
     );
   }
 
   Widget _label(String text) => Padding(
-        padding: const EdgeInsets.only(bottom: 0),
+        padding: EdgeInsets.only(bottom: 0.h),
         child: Text(
           text,
-          style: const TextStyle(
-            fontSize: 16,
+          style: TextStyle(
+            fontSize: 16.sp,
             fontWeight: FontWeight.w600,
             color: Colors.black,
           ),
@@ -131,26 +132,26 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
         backgroundColor: darkGreen,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.chevron_left, color: white, size: 28),
+          icon: Icon(Icons.chevron_left, color: white, size: 28.r),
           onPressed: () => Navigator.pop(context),
         ),
-        title: const Text(
+        title: Text(
           'Edit Profile',
           style: TextStyle(
             color: white,
-            fontSize: 25,
+            fontSize: 25.sp,
             fontWeight: FontWeight.bold,
           ),
         ),
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(10),
-            bottomRight: Radius.circular(10),
+            bottomLeft: Radius.circular(10.r),
+            bottomRight: Radius.circular(10.r),
           ),
         ),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(24, 174, 24, 24),
+        padding: EdgeInsets.fromLTRB(24.w, 174.h, 24.w, 24.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -162,7 +163,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               cursorColor: darkGreen,
               decoration: _fieldDecoration(icon: Icons.person_outline),
             ),
-            const SizedBox(height: 23),
+            SizedBox(height: 23.h),
             _label('Email'),
             TextField(
               controller: _emailController,
@@ -172,7 +173,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               keyboardType: TextInputType.emailAddress,
               decoration: _fieldDecoration(icon: Icons.mail_outline),
             ),
-            const SizedBox(height: 23),
+            SizedBox(height: 23.h),
             _label('Phone Number'),
             TextField(
               controller: _phoneController,
@@ -182,7 +183,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               keyboardType: TextInputType.phone,
               decoration: _fieldDecoration(icon: Icons.phone_outlined),
             ),
-            const SizedBox(height: 23),
+            SizedBox(height: 23.h),
             _label('Password'),
             TextField(
               controller: _passwordController,
@@ -198,17 +199,17 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ? Icons.visibility_off_outlined
                         : Icons.remove_red_eye_outlined,
                     color: darkGreen,
-                    size: 24,
+                    size: 24.r,
                   ),
                   onPressed: () =>
                       setState(() => _obscurePassword = !_obscurePassword),
                 ),
               ),
             ),
-            const SizedBox(height: 47),
+            SizedBox(height: 47.h),
             Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: EditProfileScreen.actionButtonsRowHorizontalInset,
+              padding: EdgeInsets.symmetric(
+                horizontal: EditProfileScreen.actionButtonsRowHorizontalInset.w,
               ),
               child: Row(
                 children: [
@@ -219,7 +220,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       child: const Text('SAVE'),
                     ),
                   ),
-                  const SizedBox(width: 45),
+                  SizedBox(width: 45.w),
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () => Navigator.pop(context),

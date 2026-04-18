@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../router/app_router.dart';
-import '../widgets/bottom_nav.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
+import '../../core/router/app_router.dart';
+import '../../widgets/bottom_nav.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -16,8 +17,8 @@ class HomeScreen extends StatelessWidget {
           // ── Hero Image Section ──────────────────────────────────
           ClipRRect(
             child: SizedBox(
-              height: 383,
-              width: 432,
+              height: 383.h,
+              width: 432.w,
               child: Stack(
                 fit: StackFit.expand,
                 children: [
@@ -28,9 +29,9 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   // QR TICKET text — top left
-                  const Positioned(
-                    top: 60,
-                    left: 28,
+                  Positioned(
+                    top: 60.h,
+                    left: 28.w,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                     ),
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
           // ── Sport Buttons ───────────────────────────────────────
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30.w),
               child: Column(
                 children: [
                   _SportButton(
@@ -65,16 +66,15 @@ class HomeScreen extends StatelessWidget {
                       AppRoutes.footballMatches,
                     ),
                   ),
-
-                  const SizedBox(height: 55),
+                  SizedBox(height: 55.h),
 
                   // Subtitle
-                  const Text(
+                  Text(
                     '- ENJOY EVERY MOMENT -',
                     style: TextStyle(
                       color: darkGreen,
-                      fontSize: 15,
-                      letterSpacing: 2.5,
+                      fontSize: 15.sp,
+                      letterSpacing: 2.5.w,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -107,18 +107,18 @@ class _SportButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: darkGreen,
           foregroundColor: white,
-          padding: const EdgeInsets.symmetric(vertical: 18),
+          padding: EdgeInsets.symmetric(vertical: 18.h),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(14.r),
           ),
           elevation: 0,
         ),
         child: Text(
           label,
-          style: const TextStyle(
-            fontSize: 15,
+          style: TextStyle(
+            fontSize: 15.sp,
             fontWeight: FontWeight.bold,
-            letterSpacing: 2,
+            letterSpacing: 2.w,
           ),
         ),
       ),

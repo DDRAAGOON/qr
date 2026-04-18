@@ -2,11 +2,12 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../constants/colors.dart';
-import '../router/app_router.dart';
-import '../widgets/bottom_nav.dart';
+import '../../core/constants/colors.dart';
+import '../../core/router/app_router.dart';
+import '../../widgets/bottom_nav.dart';
 
 class UploadPaymentScreenshotScreen extends StatefulWidget {
   const UploadPaymentScreenshotScreen({super.key});
@@ -86,29 +87,29 @@ class _UploadPaymentScreenshotScreenState
       backgroundColor: white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               GestureDetector(
                 onTap: () => Navigator.pop(context),
                 child: Container(
-                  width: 43,
-                  height: 43,
+                  width: 43.w,
+                  height: 43.w,
                   decoration: const BoxDecoration(
                     color: darkGreen,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.chevron_left, color: white, size: 26),
+                  child: Icon(Icons.chevron_left, color: white, size: 26.r),
                 ),
               ),
-              const SizedBox(height: 16),
-              const Center(
+              SizedBox(height: 16.h),
+              Center(
                 child: Text(
                   'Upload Payment Screenshot',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
                     color: black,
                   ),
@@ -119,10 +120,10 @@ class _UploadPaymentScreenshotScreenState
                 child: GestureDetector(
                   onTap: _pickImage,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
                     child: Container(
-                      width: 300,
-                      height: 200,
+                      width: 300.w,
+                      height: 200.h,
                       color: Colors.grey.shade300,
                       child: _imageBytes == null
                           ? Column(
@@ -130,23 +131,23 @@ class _UploadPaymentScreenshotScreenState
                               children: [
                                 Icon(
                                   Icons.image_outlined,
-                                  size: 52,
+                                  size: 52.r,
                                   color: Colors.grey.shade700,
                                 ),
-                                const SizedBox(height: 8),
+                                SizedBox(height: 8.h),
                                 Text(
                                   'Tap to upload screenshot',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 20.sp,
                                     color: Colors.grey.shade800,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                const SizedBox(height: 5),
+                                SizedBox(height: 5.h),
                                 Text(
                                   'PNG, JPEG, up to 5MB',
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 16.sp,
                                     color: Colors.grey.shade600,
                                   ),
                                 ),
@@ -165,18 +166,18 @@ class _UploadPaymentScreenshotScreenState
                                   bottom: 0,
                                   child: Container(
                                     color: Colors.black54,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 6,
-                                      horizontal: 8,
+                                    padding: EdgeInsets.symmetric(
+                                      vertical: 6.h,
+                                      horizontal: 8.w,
                                     ),
                                     child: Text(
                                       _fileName ?? '',
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       textAlign: TextAlign.center,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         color: white,
-                                        fontSize: 13,
+                                        fontSize: 13.sp,
                                       ),
                                     ),
                                   ),
@@ -187,11 +188,11 @@ class _UploadPaymentScreenshotScreenState
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Center(
                 child: SizedBox(
-                   width: 125,
-                  height: 48,
+                   width: 125.w,
+                  height: 48.h,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacementNamed(
@@ -202,14 +203,14 @@ class _UploadPaymentScreenshotScreenState
                     style: ElevatedButton.styleFrom(
                       backgroundColor: darkGreen,
                       foregroundColor: white,
-                      padding: const EdgeInsets.symmetric(vertical: 15),
-                      shape: RoundedRectangleBorder(),
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      shape: const RoundedRectangleBorder(),
                       elevation: 0,
                     ),
-                    child: const Text(
+                    child: Text(
                       'Submit',
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -262,36 +263,36 @@ class _PaymentUnderReviewScreenState extends State<PaymentUnderReviewScreen>
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: 57,),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 1),
+              SizedBox(height: 57.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 1.w),
                 child: Text(
                   'Payment Under Review',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 22.sp,
                     fontWeight: FontWeight.bold,
                     color: black,
                   ),
                 ),
               ),
-              const SizedBox(height: 300),
-              const Text(
+              SizedBox(height: 300.h),
+              Text(
                 'Waiting for admin approval',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               AnimatedBuilder(
                 animation: _controller,
                 builder: (_, __) {
                   return Transform.rotate(
                     angle: _controller.value * 2 * math.pi,
                     child: CustomPaint(
-                      size: const Size(112, 112),
+                      size: Size(112.w, 112.w),
                       painter: _DashedCirclePainter(color: darkGreen),
                     ),
                   );

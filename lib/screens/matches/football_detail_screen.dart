@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../constants/colors.dart';
-import '../../router/app_router.dart';
+import '../../core/constants/colors.dart';
+import '../../core/router/app_router.dart';
 import '../../widgets/bottom_nav.dart';
 
 class FootballDetailScreen extends StatelessWidget {
@@ -45,40 +46,40 @@ class FootballDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(17, 12, 16, 40),
+              padding: EdgeInsets.fromLTRB(17.w, 12.h, 16.w, 40.h),
               child: GestureDetector(
                 onTap: () => Navigator.pop(context),
                 child: Container(
-                  width: 42,
-                  height: 42,
+                  width: 42.w,
+                  height: 42.w,
                   decoration: const BoxDecoration(
                     color: darkGreen,
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.chevron_left, color: white, size: 26),
+                  child: Icon(Icons.chevron_left, color: white, size: 26.r),
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8.h),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16),
-              padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+              margin: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
               decoration: BoxDecoration(
                 color: lightGreen,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(20.r),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Image.asset(
                     team1,
-                    width: 64,
-                    height: 64,
+                    width: 64.w,
+                    height: 64.w,
                     fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) => const Icon(
+                    errorBuilder: (_, __, ___) => Icon(
                       Icons.sports_soccer,
                       color: white,
-                      size: 48,
+                      size: 48.r,
                     ),
                   ),
                   Column(
@@ -87,34 +88,34 @@ class FootballDetailScreen extends StatelessWidget {
                         'Nile 2026',
                         style: TextStyle(
                           color: gray,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      const SizedBox(height: 4),
+                      SizedBox(height: 4.h),
                       Text(
                         date,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: darkGreen,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(height: 6),
-                      const Text(
+                      SizedBox(height: 6.h),
+                      Text(
                         'KICK OFF',
                         style: TextStyle(
                           color: black,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
+                          letterSpacing: 1.w,
                         ),
                       ),
-                      const SizedBox(height: 2),
+                      SizedBox(height: 2.h),
                       Text(
                         time,
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: matchTimeColor,
-                          fontSize: 22,
+                          fontSize: 22.sp,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -122,24 +123,24 @@ class FootballDetailScreen extends StatelessWidget {
                   ),
                   Image.asset(
                     team2,
-                    width: 64,
-                    height: 64,
+                    width: 64.w,
+                    height: 64.w,
                     fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) => const Icon(
+                    errorBuilder: (_, __, ___) => Icon(
                       Icons.sports_soccer,
                       color: white,
-                      size: 48,
+                      size: 48.r,
                     ),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(
-                categorySectionPaddingLeft,
-                categorySectionPaddingTop,
-                categorySectionPaddingRight,
-                categorySectionPaddingBottom,
+              padding: EdgeInsets.fromLTRB(
+                categorySectionPaddingLeft.w,
+                categorySectionPaddingTop.h,
+                categorySectionPaddingRight.w,
+                categorySectionPaddingBottom.h,
               ),
               child: Column(
                 children: [
@@ -153,9 +154,9 @@ class FootballDetailScreen extends StatelessWidget {
                         'amount': price,
                       },
                     ),
-                    textShiftRight: categoryLabelShiftRight,
+                    textShiftRight: categoryLabelShiftRight.w,
                   ),
-                  SizedBox(height: categoryButtonsVerticalGap),
+                  SizedBox(height: categoryButtonsVerticalGap.h),
                   _CategoryButton(
                     label: 'Cat3 - Right',
                     onTap: () => Navigator.pushNamed(
@@ -166,9 +167,9 @@ class FootballDetailScreen extends StatelessWidget {
                         'amount': price,
                       },
                     ),
-                    textShiftRight: categoryLabelShiftRight,
+                    textShiftRight: categoryLabelShiftRight.w,
                   ),
-                  const SizedBox(height: 13),
+                  SizedBox(height: 13.h),
 
                   GestureDetector(
                     onTap: () => Navigator.pushNamed(
@@ -181,36 +182,36 @@ class FootballDetailScreen extends StatelessWidget {
                     ),
                     behavior: HitTestBehavior.opaque,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 12),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 20.w, vertical: 12.h),
                       decoration: BoxDecoration(
                         color: darkGreen,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(15.r),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Image.asset(
                             'assets/icons/money.png',
-                            width: 28,
-                            height: 20,
+                            width: 28.w,
+                            height: 20.h,
                             color: white,
                           ),
-                          const SizedBox(width: 12),
-                          const Text(
+                          SizedBox(width: 12.w),
+                          Text(
                             'Price',
                             style: TextStyle(
                               color: white,
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(width: 15),
+                          SizedBox(width: 15.w),
                           Text(
                             price,
-                            style: const TextStyle(
+                            style: TextStyle(
                               color: white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -224,8 +225,8 @@ class FootballDetailScreen extends StatelessWidget {
             Center(
               child: Image.asset(
                 'assets/studio/football.png',
-                width: 294,
-                height: 171,
+                width: 294.w,
+                height: 171.h,
               ),
             ),
           ],
@@ -253,13 +254,13 @@ class _CategoryButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(
-          horizontal: FootballDetailScreen.categoryButtonHorizontalPadding,
-          vertical: FootballDetailScreen.categoryButtonVerticalPadding,
+          horizontal: FootballDetailScreen.categoryButtonHorizontalPadding.w,
+          vertical: FootballDetailScreen.categoryButtonVerticalPadding.h,
         ),
         decoration: BoxDecoration(
           color: darkGreen,
           borderRadius: BorderRadius.circular(
-            FootballDetailScreen.categoryButtonBorderRadius,
+            FootballDetailScreen.categoryButtonBorderRadius.r,
           ),
         ),
         child: Row(
@@ -267,18 +268,18 @@ class _CategoryButton extends StatelessWidget {
           children: [
             Image.asset(
               'assets/icons/seat.png',
-              width: FootballDetailScreen.categoryButtonIconSize,
-              height: FootballDetailScreen.categoryButtonIconSize,
+              width: FootballDetailScreen.categoryButtonIconSize.r,
+              height: FootballDetailScreen.categoryButtonIconSize.r,
               color: white,
             ),
-            SizedBox(width: FootballDetailScreen.categoryButtonIconTextGap),
+            SizedBox(width: FootballDetailScreen.categoryButtonIconTextGap.w),
             Padding(
               padding: EdgeInsets.only(left: textShiftRight),
               child: Text(
                 label,
                 style: TextStyle(
                   color: white,
-                  fontSize: FootballDetailScreen.categoryButtonFontSize,
+                  fontSize: FootballDetailScreen.categoryButtonFontSize.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),

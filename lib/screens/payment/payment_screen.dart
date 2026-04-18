@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../constants/colors.dart';
-import '../router/app_router.dart';
-import '../widgets/bottom_nav.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../core/constants/colors.dart';
+import '../../core/router/app_router.dart';
+import '../../widgets/bottom_nav.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({
@@ -26,47 +27,47 @@ class PaymentScreen extends StatelessWidget {
       backgroundColor: white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(height: 34),
+              SizedBox(height: 34.h),
               Container(
                 width: double.infinity,
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                    EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
                 decoration: BoxDecoration(
-                  border: Border.all(color: black, width: 1.5),
-                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: black, width: 1.5.w),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'Total Amount',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 24.sp,
                             fontWeight: FontWeight.bold,
                             color: black,
                           ),
                         ),
                         Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 4,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 12.w,
+                            vertical: 4.h,
                           ),
                           decoration: BoxDecoration(
-                              border: Border.all(color: black, width: 1.5),
-                              borderRadius: BorderRadius.circular(6),
-                              color: Color(0xffE4DFDF)),
+                              border: Border.all(color: black, width: 1.5.w),
+                              borderRadius: BorderRadius.circular(6.r),
+                              color: const Color(0xffE4DFDF)),
                           child: Text(
                             '${_amountValue.toStringAsFixed(0)} EGP',
-                            style: const TextStyle(
-                              fontSize: 16,
+                            style: TextStyle(
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -76,21 +77,21 @@ class PaymentScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 28),
-              const Text(
+              SizedBox(height: 28.h),
+              Text(
                 'You can transfer using any of\nfollowing methods',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                   color: black,
                   height: 1.4,
                 ),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   _PaymentLogo(
                     imagePath: 'assets/payment/vodafone.png',
                     isCircle: true,
@@ -107,37 +108,37 @@ class PaymentScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
+                children: [
                   _PaymentLogo(
                     imagePath: 'assets/payment/fawry.png',
                     isCircle: false,
-                    width: 130,
-                    height: 52,
+                    width: 130.w,
+                    height: 52.h,
                   ),
                   _PaymentLogo(
                     imagePath: 'assets/payment/ea.png',
                     isCircle: false,
-                    width: 130,
-                    height: 52,
+                    width: 130.w,
+                    height: 52.h,
                   ),
                 ],
               ),
-              const SizedBox(height: 28),
-              const Text(
+              SizedBox(height: 28.h),
+              Text(
                 transferPhoneNumber,
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 22.sp,
                   fontWeight: FontWeight.w500,
                   color: black,
-                  letterSpacing: 1,
+                  letterSpacing: 1.w,
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
               SizedBox(
-                width: 160,
+                width: 160.w,
                 child: ElevatedButton(
                   onPressed: () {
                     Clipboard.setData(
@@ -154,16 +155,16 @@ class PaymentScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: darkGreen,
                     foregroundColor: white,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    padding: EdgeInsets.symmetric(vertical: 12.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                     ),
                     elevation: 0,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Copy',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -179,35 +180,35 @@ class PaymentScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: darkGreen,
                     foregroundColor: white,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(12.r),
                     ),
                     elevation: 0,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Upload Screenshot',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               TextButton(
                 onPressed: () =>
                     Navigator.pushNamed(context, AppRoutes.qrTicket),
-                child: const Text(
+                child: Text(
                   'I completed payment — show ticket',
                   style: TextStyle(
                     color: darkGreen,
                     fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                   ),
                 ),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12.h),
             ],
           ),
         ),
@@ -236,15 +237,15 @@ class _PaymentLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget img = Image.asset(
       imagePath,
-      width: isCircle ? 50 : width,
-      height: isCircle ? 50 : height,
+      width: isCircle ? 50.w : width,
+      height: isCircle ? 50.w : height,
       fit: BoxFit.contain,
       errorBuilder: (_, __, ___) => Icon(
         Icons.payment,
         color: bgColor != null && bgColor != Colors.transparent
             ? white
             : darkGreen,
-        size: 32,
+        size: 32.r,
       ),
     );
 

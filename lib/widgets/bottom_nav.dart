@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
-import '../router/app_router.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../core/constants/colors.dart';
+import '../core/router/app_router.dart';
 
 /// Single bottom bar used across main app screens (home, match lists, details, QR).
 class AppBottomNav extends StatelessWidget {
@@ -9,14 +10,14 @@ class AppBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: darkGreen,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(28),
-          topRight: Radius.circular(28),
+          topLeft: Radius.circular(28.r),
+          topRight: Radius.circular(28.r),
         ),
       ),
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 16),
+      padding: EdgeInsets.symmetric(horizontal: 36.w, vertical: 16.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -66,7 +67,7 @@ class _NavIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Icon(icon, color: white, size: 28),
+      child: Icon(icon, color: white, size: 28.r),
     );
   }
 }
