@@ -18,7 +18,7 @@ const List<Map<String, dynamic>> kTicketsHistoryData = [
     'time': '19:00',
     'price': '75.00 EGP',
     'category': 'Cat3 - Left',
-    'status': 'Completed',
+    'status': 'Wait',
   },
   {
     'title': 'Al Ahly vs Smouha',
@@ -28,7 +28,7 @@ const List<Map<String, dynamic>> kTicketsHistoryData = [
     'time': '22:00',
     'price': '75.00 EGP',
     'category': 'Cat3 - Right',
-    'status': 'Completed',
+    'status': 'Under Review',
   },
   {
     'title': 'Al Ittihad vs Smouha',

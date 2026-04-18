@@ -14,7 +14,7 @@ class TicketsHistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: white,
       appBar: AppBar(
         backgroundColor: darkGreen,
         elevation: 0,

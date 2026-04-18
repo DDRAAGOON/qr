@@ -23,11 +23,11 @@ class WelcomeScreen extends StatelessWidget {
 
           // ── Football Ball Bottom Left ───────────────────────────
           Positioned(
-            bottom: -17,
+            bottom: -17,left: -50,
             child: Image.asset(
-              'assets/image/balld.png',
-              width: 100,
-              height: 97,
+              'assets/image/image.png',
+              width:205,
+              height: 205,
             ),
           ),
 

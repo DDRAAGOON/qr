@@ -4,8 +4,7 @@ import '../screens/home_screen.dart';
 import '../screens/login_screen.dart';
 import '../screens/matches/football_detail_screen.dart';
 import '../screens/matches/football_matches_screen.dart';
-import '../screens/matches/handball_detail_screen.dart';
-import '../screens/matches/handball_matches_screen.dart';
+
 import '../screens/qr_ticket_screen.dart';
 import '../screens/reset_password_screen.dart';
 import '../screens/signup_screen.dart';
@@ -24,9 +23,9 @@ class AppRoutes {
   static const String signup = '/signup';
   static const String home = '/home';
   static const String footballMatches = '/matches/football';
-  static const String handballMatches = '/matches/handball';
+
   static const String footballMatchDetail = '/matches/football/detail';
-  static const String handballMatchDetail = '/matches/handball/detail';
+
   static const String qrTicket = '/qr_ticket';
   static const String forgotPassword = '/forgot_password';
   static const String resetPassword = '/reset_password';
@@ -46,7 +45,7 @@ class AppRoutes {
       signup: (context) => const SignupScreen(),
       home: (context) => const HomeScreen(),
       footballMatches: (context) => const FootballMatchesScreen(),
-      handballMatches: (context) => const HandballMatchesScreen(),
+
       qrTicket: (context) => const QRTicketScreen(),
       forgotPassword: (context) => const ForgotPasswordScreen(),
       resetPassword: (context) => const ResetPasswordScreen(),
@@ -79,14 +78,7 @@ class AppRoutes {
           settings: settings,
           builder: (context) => FootballDetailScreen(match: match),
         );
-      case handballMatchDetail:
-        final match = settings.arguments is Map<String, dynamic>
-            ? settings.arguments as Map<String, dynamic>
-            : null;
-        return MaterialPageRoute<void>(
-          settings: settings,
-          builder: (context) => HandballDetailScreen(match: match),
-        );
+
       default:
         return null;
     }

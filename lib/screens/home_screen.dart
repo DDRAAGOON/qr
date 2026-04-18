@@ -65,19 +65,7 @@ class HomeScreen extends StatelessWidget {
                       AppRoutes.footballMatches,
                     ),
                   ),
-                  const SizedBox(height: 23),
-                  _SportButton(
-                    label: 'HANDBALL',
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      AppRoutes.handballMatches,
-                    ),
-                  ),
-                  const SizedBox(height: 23),
-                  _SportButton(
-                    label: 'OTHER GAMES',
-                    onTap: () {},
-                  ),
+
                   const SizedBox(height: 55),
 
                   // Subtitle

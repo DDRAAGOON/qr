@@ -79,18 +79,23 @@ class TicketHistoryItem extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
-              decoration: BoxDecoration(
-                color: _statusBackground(status),
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: Text(
-                status,
-                style: const TextStyle(
-                  color: white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
+            GestureDetector(
+              onTap: status == 'Completed'
+                  ? () => Navigator.pushNamed(context, '/qr_ticket')
+                  : null,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                decoration: BoxDecoration(
+                  color: _statusBackground(status),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  status,
+                  style: const TextStyle(
+                    color: white,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -98,7 +103,7 @@ class TicketHistoryItem extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                color: Colors.grey.shade400,
                 borderRadius: BorderRadius.circular(1),
               ),
               child: Row(
@@ -131,6 +136,9 @@ class TicketHistoryItem extends StatelessWidget {
     switch (status) {
       case 'Completed':
         return darkGreen;
+      case 'Under Review':
+        return Colors.blue.shade700;
+      case 'Wait':
       case 'Pending':
         return Colors.orange.shade700;
       default:
