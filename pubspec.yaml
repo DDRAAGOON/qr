@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   qr_flutter: ^4.1.0  # Added for QR code generation
   image_picker: ^1.1.2
+  mobile_scanner: ^7.2.0
   flutter_native_splash: ^2.4.7
   flutter_screenutil: ^5.9.3
 

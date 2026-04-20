@@ -13,13 +13,13 @@ class FootballDetailScreen extends StatelessWidget {
   static const double categoryLabelShiftRight = 35;
 
   /// حجم زر Cat3 (قلّل الأرقام عشان الزر يصغر — الشكل نفسه).
-  static const double categoryButtonHorizontalPadding = 40;  // ✅ زودتها عشان التناسق
-  static const double categoryButtonVerticalPadding = 8;    // ✅ زودتها عشان التناسق
-  static const double categoryButtonIconSize = 41;           // ✅ قللتها شوية
-  static const double categoryButtonIconTextGap = 20;        // ✅ قللتها عشان المسافة
-  static const double categoryButtonFontSize = 16;           // ✅ زودتها شوية
-  static const double categoryButtonBorderRadius = 8;       // ✅ زودتها
-  static const double categoryButtonsVerticalGap = 14;       // ✅ زودت المسافة بين الزرارين
+  static const double categoryButtonHorizontalPadding = 40; // ✅ زودتها عشان التناسق
+  static const double categoryButtonVerticalPadding = 8; // ✅ زودتها عشان التناسق
+  static const double categoryButtonIconSize = 41; // ✅ قللتها شوية
+  static const double categoryButtonIconTextGap = 20; // ✅ قللتها عشان المسافة
+  static const double categoryButtonFontSize = 16; // ✅ زودتها شوية
+  static const double categoryButtonBorderRadius = 8; // ✅ زودتها
+  static const double categoryButtonsVerticalGap = 14; // ✅ زودت المسافة بين الزرارين
 
   /// مسافات كتلة Cat3 + السعر من حواف الشاشة.
   static const double categorySectionPaddingLeft = 80;
@@ -42,194 +42,193 @@ class FootballDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: white,
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(17.w, 12.h, 16.w, 40.h),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  width: 42.w,
-                  height: 42.w,
-                  decoration: const BoxDecoration(
-                    color: darkGreen,
-                    shape: BoxShape.circle,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(17.w, 12.h, 16.w, 20.h),
+                child: GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
+                    width: 42.w,
+                    height: 42.w,
+                    decoration: const BoxDecoration(
+                      color: darkGreen,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(Icons.chevron_left, color: white, size: 26.r),
                   ),
-                  child: Icon(Icons.chevron_left, color: white, size: 26.r),
                 ),
               ),
-            ),
-            SizedBox(height: 8.h),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 16.w),
-              padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
-              decoration: BoxDecoration(
-                color: lightGreen,
-                borderRadius: BorderRadius.circular(20.r),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(
-                    team1,
-                    width: 64.w,
-                    height: 64.w,
-                    fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) => Icon(
-                      Icons.sports_soccer,
-                      color: white,
-                      size: 48.r,
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.w),
+                padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
+                decoration: BoxDecoration(
+                  color: lightGreen,
+                  borderRadius: BorderRadius.circular(20.r),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Image.asset(
+                      team1,
+                      width: 64.w,
+                      height: 64.w,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) => Icon(
+                        Icons.sports_soccer,
+                        color: white,
+                        size: 48.r,
+                      ),
                     ),
-                  ),
-                  Column(
+                    Column(
+                      children: [
+                        Text(
+                          'Nile 2026',
+                          style: TextStyle(
+                            color: gray,
+                            fontSize: 16.sp,
+                          ),
+                        ),
+                        SizedBox(height: 4.h),
+                        Text(
+                          date,
+                          style: TextStyle(
+                            color: darkGreen,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: 6.h),
+                        Text(
+                          'KICK OFF',
+                          style: TextStyle(
+                            color: black,
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 1.w,
+                          ),
+                        ),
+                        SizedBox(height: 2.h),
+                        Text(
+                          time,
+                          style: TextStyle(
+                            color: matchTimeColor,
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      team2,
+                      width: 64.w,
+                      height: 64.w,
+                      fit: BoxFit.contain,
+                      errorBuilder: (_, __, ___) => Icon(
+                        Icons.sports_soccer,
+                        color: white,
+                        size: 48.r,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 30.h),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        'Nile 2026',
-                        style: TextStyle(
-                          color: gray,
-                          fontSize: 16.sp,
+                      _CategoryButton(
+                        label: 'Cat3 - Left',
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          AppRoutes.payment,
+                          arguments: {
+                            'seat': 'Cat3 - Left',
+                            'amount': price,
+                          },
                         ),
+                        textShiftRight: 0,
                       ),
-                      SizedBox(height: 4.h),
-                      Text(
-                        date,
-                        style: TextStyle(
-                          color: darkGreen,
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(height: categoryButtonsVerticalGap.h),
+                      _CategoryButton(
+                        label: 'Cat3 - Right',
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          AppRoutes.payment,
+                          arguments: {
+                            'seat': 'Cat3 - Right',
+                            'amount': price,
+                          },
                         ),
+                        textShiftRight: 0,
                       ),
-                      SizedBox(height: 6.h),
-                      Text(
-                        'KICK OFF',
-                        style: TextStyle(
-                          color: black,
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.w,
+                      SizedBox(height: 20.h),
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(
+                          context,
+                          AppRoutes.payment,
+                          arguments: {
+                            'seat': 'Selected ticket',
+                            'amount': price,
+                          },
                         ),
-                      ),
-                      SizedBox(height: 2.h),
-                      Text(
-                        time,
-                        style: TextStyle(
-                          color: matchTimeColor,
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.bold,
+                        behavior: HitTestBehavior.opaque,
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 24.w, vertical: 12.h),
+                          decoration: BoxDecoration(
+                            color: darkGreen,
+                            borderRadius: BorderRadius.circular(15.r),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                'assets/icons/money.png',
+                                width: 28.w,
+                                height: 20.h,
+                                color: white,
+                              ),
+                              SizedBox(width: 12.w),
+                              Text(
+                                'Price',
+                                style: TextStyle(
+                                  color: white,
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(width: 15.w),
+                              Text(
+                                price,
+                                style: TextStyle(
+                                  color: white,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  Image.asset(
-                    team2,
-                    width: 64.w,
-                    height: 64.w,
-                    fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) => Icon(
-                      Icons.sports_soccer,
-                      color: white,
-                      size: 48.r,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(
-                categorySectionPaddingLeft.w,
-                categorySectionPaddingTop.h,
-                categorySectionPaddingRight.w,
-                categorySectionPaddingBottom.h,
+              Center(
+                child: Image.asset(
+                  'assets/studio/football.png',
+                  width: 294.w,
+                  height: 171.h,
+                ),
               ),
-              child: Column(
-                children: [
-                  _CategoryButton(
-                    label: 'Cat3 - Left',
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      AppRoutes.payment,
-                      arguments: {
-                        'seat': 'Cat3 - Left',
-                        'amount': price,
-                      },
-                    ),
-                    textShiftRight: categoryLabelShiftRight.w,
-                  ),
-                  SizedBox(height: categoryButtonsVerticalGap.h),
-                  _CategoryButton(
-                    label: 'Cat3 - Right',
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      AppRoutes.payment,
-                      arguments: {
-                        'seat': 'Cat3 - Right',
-                        'amount': price,
-                      },
-                    ),
-                    textShiftRight: categoryLabelShiftRight.w,
-                  ),
-                  SizedBox(height: 13.h),
-
-                  GestureDetector(
-                    onTap: () => Navigator.pushNamed(
-                      context,
-                      AppRoutes.payment,
-                      arguments: {
-                        'seat': 'Selected ticket',
-                        'amount': price,
-                      },
-                    ),
-                    behavior: HitTestBehavior.opaque,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 20.w, vertical: 12.h),
-                      decoration: BoxDecoration(
-                        color: darkGreen,
-                        borderRadius: BorderRadius.circular(15.r),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Image.asset(
-                            'assets/icons/money.png',
-                            width: 28.w,
-                            height: 20.h,
-                            color: white,
-                          ),
-                          SizedBox(width: 12.w),
-                          Text(
-                            'Price',
-                            style: TextStyle(
-                              color: white,
-                              fontSize: 15.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(width: 15.w),
-                          Text(
-                            price,
-                            style: TextStyle(
-                              color: white,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Center(
-              child: Image.asset(
-                'assets/studio/football.png',
-                width: 294.w,
-                height: 171.h,
-              ),
-            ),
-          ],
+              SizedBox(height: 40.h),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: const AppBottomNav(),

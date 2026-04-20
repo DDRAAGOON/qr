@@ -195,6 +195,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     MaterialPageRoute(builder: (_) => const AdminHomeScreen()),
                                   );
+                                } else if (_emailController.text.trim() == 'staff@staff.com' &&
+                                    _passwordController.text == 'staff123') {
+                                  Navigator.pushReplacementNamed(
+                                    context,
+                                    AppRoutes.staffScanTicket,
+                                  );
                                 } else {
                                   Navigator.pushNamed(context, AppRoutes.home);
                                 }

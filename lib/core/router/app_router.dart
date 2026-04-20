@@ -16,6 +16,10 @@ import '../../screens/matches/football_matches_screen.dart';
 import '../../screens/admin/admin_dashboard_screen.dart';
 import '../../screens/admin/admin_login_screen.dart';
 import '../../screens/admin/admin_tickets_screen.dart';
+import '../../screens/staff/scan_ticket_screen.dart';
+import '../../screens/staff/scanner_screen.dart';
+import '../../screens/staff/success_screen.dart';
+import '../../screens/staff/failure_screen.dart';
 
 class AppRoutes {
   static const String welcome = '/welcome';
@@ -38,6 +42,11 @@ class AppRoutes {
   static const String adminTickets = '/admin/tickets';
   static const String ticketsHistory = '/tickets/history';
   static const String verification = '/verification';
+  
+  static const String staffScanTicket = '/staff/scan_ticket';
+  static const String staffScanner = '/staff/scanner';
+  static const String staffSuccess = '/staff/success';
+  static const String staffFailure = '/staff/failure';
 
   static Map<String, WidgetBuilder> get routes {
     return {
@@ -67,6 +76,11 @@ class AppRoutes {
       adminTickets: (context) => const AdminTicketsScreen(),
       ticketsHistory: (context) => const TicketsHistoryScreen(),
       verification: (context) => const VerificationScreen(),
+      
+      staffScanTicket: (context) => const ScanTicketScreen(),
+      staffScanner: (context) => const ScannerScreen(),
+      staffSuccess: (context) => const SuccessScreen(),
+      staffFailure: (context) => const FailureScreen(),
     };
   }
 

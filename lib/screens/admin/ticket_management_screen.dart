@@ -4,164 +4,147 @@ import '../../core/constants/colors.dart';
 import '../../widgets/admin_shared_widgets.dart';
 
 class TicketManagementScreen extends StatefulWidget {
-  const TicketManagementScreen({super.key});
+  final Map<String, dynamic>? matchData;
+  const TicketManagementScreen({super.key, this.matchData});
 
   @override
   State<TicketManagementScreen> createState() => _TicketManagementScreenState();
 }
 
 class _TicketManagementScreenState extends State<TicketManagementScreen> {
-  final _date     = TextEditingController(text: '15 December 2026');
-  final _time     = TextEditingController(text: '19:00');
-  final _price    = TextEditingController(text: '75 EGP');
-  final _quantity = TextEditingController(text: '100');
+  late final TextEditingController _homeController;
+  late final TextEditingController _awayController;
+  late final TextEditingController _dateController;
+  late final TextEditingController _timeController;
+  late final TextEditingController _priceController;
+  late final TextEditingController _quantityController;
 
-  Widget _box(Widget child) => Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 8.h),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey.shade400, width: 1.w),
-          borderRadius: BorderRadius.circular(8.r),
-        ),
-        child: child,
-      );
+  @override
+  void initState() {
+    super.initState();
+    _homeController = TextEditingController(
+        text: widget.matchData?['team1'] ?? 'Al Ahly FC');
+    _awayController = TextEditingController(
+        text: widget.matchData?['team2'] ?? 'Zamalek SC');
+    _dateController = TextEditingController(
+        text: widget.matchData?['date'] ?? '15 December 2026');
+    _timeController = TextEditingController(
+        text: widget.matchData?['time'] ?? '19:00');
+    _priceController = TextEditingController(
+        text: widget.matchData?['price'] ?? '75 EGP');
+    _quantityController = TextEditingController(
+        text: widget.matchData?['quantity'] ?? '100');
+  }
+
+  @override
+  void dispose() {
+    _homeController.dispose();
+    _awayController.dispose();
+    _dateController.dispose();
+    _timeController.dispose();
+    _priceController.dispose();
+    _quantityController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
       appBar: adminGreenAppBar('Ticket Management', context),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(20.r),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Edit Ticket Prices and Quantities',
-                textAlign: TextAlign.center,
-                style:
-                    TextStyle(fontSize: 17.sp, fontWeight: FontWeight.bold)),
-            SizedBox(height: 4.h),
-            Text('Update ticket prices and available seats for upcoming matches',
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey, fontSize: 13.sp)),
+            Text(
+              'Edit Ticket Prices and Quantities',
+              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 5.h),
+            Text(
+              'Update ticket prices and available seats for upcoming matches',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.grey, fontSize: 13.sp),
+            ),
             SizedBox(height: 24.h),
 
-            // Card
+            // Data Card
             Container(
               padding: EdgeInsets.all(16.r),
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey.shade300, width: 1.w),
-                borderRadius: BorderRadius.circular(16.r),
+                border: Border.all(
+                    color: black.withValues(alpha: 0.1), width: 1.w),
+                borderRadius: BorderRadius.circular(15.r),
               ),
               child: Column(
                 children: [
-                  // League tag
+                  // Label: EPL League
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 4.h),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 14.w, vertical: 4.h),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFD4EDDA),
-                      borderRadius: BorderRadius.circular(20.r),
+                      color: const Color(0xFFC1FFC1),
+                      borderRadius: BorderRadius.circular(5.r),
                     ),
                     child: Text('EPL League',
-                        style: TextStyle(color: darkGreen, fontWeight: FontWeight.w600, fontSize: 12.sp)),
+                        style: TextStyle(
+                            color: darkGreen,
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.bold)),
                   ),
-                  SizedBox(height: 14.h),
+                  SizedBox(height: 16.h),
+
                   Row(
                     children: [
-                      Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Home',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text('Al Ahly FC',
-                                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.sp))),
-                          ])),
+                      Expanded(child: _buildDataField('Home', _homeController)),
                       SizedBox(width: 12.w),
-                      Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Away',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text('Zamalek SC',
-                                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.sp))),
-                          ])),
+                      Expanded(child: _buildDataField('Away', _awayController)),
                     ],
                   ),
-                  SizedBox(height: 12.h),
+                  SizedBox(height: 16.h),
+
                   Row(
                     children: [
-                      Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Date',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text(_date.text, style: TextStyle(fontSize: 13.sp))),
-                          ])),
+                      Expanded(child: _buildDataField('Date', _dateController)),
                       SizedBox(width: 12.w),
-                      Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Time',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text(_time.text,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 13.sp))),
-                          ])),
+                      Expanded(child: _buildDataField('Time', _timeController)),
                     ],
                   ),
-                  SizedBox(height: 12.h),
+                  SizedBox(height: 16.h),
+
                   Row(
                     children: [
                       Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Price',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text(_price.text, style: TextStyle(fontSize: 13.sp))),
-                          ])),
+                          child: _buildDataField('Price', _priceController)),
                       SizedBox(width: 12.w),
                       Expanded(
-                          child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                            Text('Available Quantity',
-                                style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
-                            SizedBox(height: 4.h),
-                            _box(Text(_quantity.text,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 13.sp))),
-                          ])),
+                          child: _buildDataField(
+                              'Available Quantity', _quantityController)),
                     ],
                   ),
                 ],
               ),
             ),
 
-            const Spacer(),
+            SizedBox(height: 40.h),
 
             SizedBox(
               width: double.infinity,
+              height: 52.h,
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: darkGreen,
                   foregroundColor: white,
-                  padding: EdgeInsets.symmetric(vertical: 15.h),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r)),
+                      borderRadius: BorderRadius.circular(10.r)),
                   elevation: 0,
                 ),
                 child: Text('Save',
-                    style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                        color: white,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold)),
               ),
             ),
             SizedBox(height: 20.h),
@@ -170,4 +153,34 @@ class _TicketManagementScreenState extends State<TicketManagementScreen> {
       ),
     );
   }
+
+  Widget _buildDataField(String label, TextEditingController controller) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label,
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500)),
+        SizedBox(height: 6.h),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF5F5F5),
+            border: Border.all(color: Colors.black26),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          child: TextField(
+            controller: controller,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 13.sp),
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(vertical: 10),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
+

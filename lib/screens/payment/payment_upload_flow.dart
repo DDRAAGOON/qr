@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../core/constants/colors.dart';
 import '../../core/router/app_router.dart';
+import '../../core/services/receipts_service.dart';
 import '../../widgets/bottom_nav.dart';
 
 class UploadPaymentScreenshotScreen extends StatefulWidget {
@@ -191,10 +192,29 @@ class _UploadPaymentScreenshotScreenState
               SizedBox(height: 24.h),
               Center(
                 child: SizedBox(
-                   width: 125.w,
+                  width: 125.w,
                   height: 48.h,
                   child: ElevatedButton(
                     onPressed: () {
+                      if (_imageBytes == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please upload a screenshot first'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return;
+                      }
+
+                      // Add to service
+                      ReceiptsService().addReceipt(
+                        ReceiptModel(
+                          name: 'New Customer', // In real app, get from Auth
+                          email: 'customer@example.com',
+                          memoryImg: _imageBytes,
+                        ),
+                      );
+
                       Navigator.pushReplacementNamed(
                         context,
                         AppRoutes.paymentUnderReview,
